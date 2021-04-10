@@ -46,7 +46,20 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
     width:300
   },
-
+  paperStyleLogin:{
+    margin: "20px auto",
+    padding: 20,
+    height: '70vh',
+    width: 350,
+    marginTop: "70px"
+  },
+  paperStyleSignup:{
+    margin: "20px auto",
+    padding: 20,
+    height: '90vh',
+    width: 350,
+    marginTop: "70px"
+  },
   root: {
     '& > *': {
       margin: theme.spacing(1),
