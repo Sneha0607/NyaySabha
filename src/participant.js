@@ -12,7 +12,37 @@ const Participant = () => {
     const [courtRoomCode, setCourtRoomCode] = React.useState();
     const [error, setError] = React.useState('');
     const [success, setSuccess] = React.useState(false);
+    const handleParticipant = (e) =>{
+        e.preventDefault();
+    setError('');
+    if(courtRoomCode===''){
+        return setError("code is Required!");
+    }
+    const code  = courtRoomCode;
+    try {
+         fire.database().ref('/courtrooms/'+ code).once('value', snap=>{
+            if(snap.exists()){
+                 setSuccess(true);
+             const user = fire.auth().currentUser;
+            const participant = {
+                code: courtRoomCode,
+                participantid: user.uid
+            }
+            axios.post('http://localhost:5000/participantregistration', participant)
+            .catch((err)=>{
+                console.log(err);
+            })
+            }
+            else{
+                setError('CourtRoom Code invalid!');
+            }
+        })
+
         
+    } catch (error) {
+        console.log(error);
+    }
+    }
     return(
        <main>
            <LoggedNavbar/>
@@ -24,7 +54,7 @@ const Participant = () => {
         <Typography variant = "h5" align = "center" color = "textPrimary" family = "Roboto" gutterBottom>
         Enter Details
         </Typography>
-    <form  >
+    <form  onSubmit = {handleParticipant}>
     {error &&<Alert severity="error" >{error}</Alert>}
         <TextField required className = {classes.textField} variant = "outlined" color = "primary"  label = "Court Room Code" onChange = {(e)=>{setCourtRoomCode(e.target.value)}} error = {error}/>
         {success?(

@@ -46,7 +46,7 @@ app.get('/userprofile/:userid', function(req, res){
 });
 
 app.post('/createcourtroom', function(req, res){
-    const election = {
+    db.ref('courtrooms/'+ req.body.code).set({
         courtName: req.body.courtName,
         cnr: req.body.cnr,
         title: req.body.title,
@@ -54,8 +54,44 @@ app.post('/createcourtroom', function(req, res){
         date: req.body.date,
         time: req.body.time,
         code: req.body.code,
-        creatorid: creator.uid
-    }
+        creatorid: req.body.creatorid
+    })
 });
-
+app.post('/judgeregistration', function(req, res){
+    db.ref('courtrooms/'+ req.body.code+'/judges/'+req.body.judgeid).set({
+        code: req.body.code,
+        judgeid: req.body.judgeid
+    })
+    db.ref('users/'+ req.body.judgeid+'/asjudge/'+req.body.code).set({
+        code: req.body.code
+    })
+    
+});
+app.post('/participantregistration', function(req, res){
+    db.ref('courtrooms/'+ req.body.code+'/participants/'+req.body.participantid).set({
+        code: req.body.code,
+        participantid: req.body.participantid
+    })
+    db.ref('users/'+ req.body.participantid+'/asparticipant/'+req.body.code).set({
+        code: req.body.code
+    })
+});
+app.post('/lawyerregistration', function(req, res){
+    db.ref('courtrooms/'+ req.body.code+'/lawyers/'+req.body.lawyerid).set({
+        code: req.body.code,
+        lawyerid: req.body.lawyerid
+    })
+    db.ref('users/'+ req.body.lawyerid+'/aslawyer/'+req.body.code).set({
+        code: req.body.code
+    })
+});
+app.post('/viewerregistration', function(req, res){
+    db.ref('courtrooms/'+ req.body.code+'/viewers/'+req.body.viewerid).set({
+        code: req.body.code,
+        viewerid: req.body.viewerid
+    })
+    db.ref('users/'+ req.body.viewerid+'/asviewer/'+req.body.code).set({
+        code: req.body.code
+    })
+});
 app.listen(port, console.log('Listening to port 5000'));
