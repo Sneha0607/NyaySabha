@@ -60,16 +60,43 @@ const Dashboard = () => {
                     </Typography>
                     <Typography>
                       {phoneNumber}
-                    </Typography>
-                    
+                    </Typography>        
                   </CardContent>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={8} md={8}>
                 <Card className={classes.card}>
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5">      
-                    </Typography>
+                    <Typography gutterBottom variant="h5"></Typography>
+                    <div className={classes.buttons}>
+                    <Grid container spacing={1} justify="center">
+                    <Grid item xs={12} sm={10} md={8}>
+                    <Button variant="contained" color="primary" href = "/create">
+                      Create a CourtRoom
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sm={10} md={8}>
+                    <Button variant="contained" color="primary" href = "/judge">
+                      Join as a Judge
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sm={10} md={8}>
+                    <Button variant="contained" color="primary" href = "/lawyer">
+                      Join as a Lawyer
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sm={10} md={8}>
+                    <Button variant="contained" color="primary" href = "/participant">
+                      Join as a Participant
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sm={10} md={8}>
+                    <Button variant="contained" color="primary" href = "/viewer">
+                      Join as a Viewer
+                    </Button>
+                    </Grid>
+                </Grid>
+              </div>
                   </CardContent>
                 </Card>
               </Grid>

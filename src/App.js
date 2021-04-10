@@ -7,6 +7,12 @@ import Signup from './signup';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import fire from './firebase';
 import Dashboard from './Dashboard';
+import Create from './create';
+import Judge from './judge';
+import Lawyer from './lawyer';
+import Participant from './participant';
+import Viewer from './viewer';
+
 const App = () => {
   const [user, setUser] = useState('');
   const authlistener = () =>{
@@ -34,6 +40,11 @@ const App = () => {
         <Router>
         <Switch>
           <Route path = '/' exact component = {Dashboard}/>
+          <Route path = '/create' component = {Create}/>
+          <Route path = '/judge' component = {Judge}/>
+          <Route path = '/lawyer' component = {Lawyer}/>
+          <Route path = '/participant' component = {Participant}/>
+          <Route path = '/viewer' component = {Viewer}/>
         </Switch>
         </Router>
         </CssBaseline>

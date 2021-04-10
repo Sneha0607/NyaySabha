@@ -28,9 +28,6 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
       paddingTop: '56.25%' //16:9
   },
-  Preamble: {
-      paddingTop: '150%'
-  },
   cardContent: {
      flexGrow: 1 
   },
@@ -41,10 +38,6 @@ const useStyles = makeStyles((theme) => ({
   img: {
     height: '50%',
     width: '100%'
-  },
-  textField: {
-    marginTop: "20px",
-    width:300
   },
   paperStyleLogin:{
     margin: "20px auto",
@@ -59,6 +52,21 @@ const useStyles = makeStyles((theme) => ({
     height: '90vh',
     width: 350,
     marginTop: "70px"
+  },
+  textField: {
+    marginTop: "20px",
+    width:300
+  },
+  paperStyleCreate: {
+    margin: "auto",
+    padding: 20,
+    height: '150vh',
+    width: 550,
+    marginTop: "50px"
+  },
+  textFieldCreate: {
+    marginTop: "20px",
+    width:500
   },
   root: {
     '& > *': {

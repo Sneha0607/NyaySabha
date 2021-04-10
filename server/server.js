@@ -42,7 +42,20 @@ app.get('/userprofile/:userid', function(req, res){
     db.ref('/users/'+ userid).on('value', snap=>{
         const user = snap.val();
         res.send(JSON.stringify(user));
-   });
-    
+   }); 
 });
+
+app.post('/createcourtroom', function(req, res){
+    const election = {
+        courtName: req.body.courtName,
+        cnr: req.body.cnr,
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.date,
+        time: req.body.time,
+        code: req.body.code,
+        creatorid: creator.uid
+    }
+});
+
 app.listen(port, console.log('Listening to port 5000'));
