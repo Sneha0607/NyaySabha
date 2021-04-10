@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types';
 import MediaContainer from './MediaContainer'
-import Communication from '../components/Communication'
+import Communication from '../Components/Communication'
 import store from '../store'
 import { connect } from 'react-redux'
 class CommunicationContainer extends React.Component {

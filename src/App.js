@@ -12,6 +12,7 @@ import Judge from './judge';
 import Lawyer from './lawyer';
 import Participant from './participant';
 import Viewer from './viewer';
+import Room from './Containers/RoomPage';
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -45,6 +46,7 @@ const App = () => {
           <Route path = '/lawyer' component = {Lawyer}/>
           <Route path = '/participant' component = {Participant}/>
           <Route path = '/viewer' component = {Viewer}/>
+          <Route path = '/room/:roomid' component = {Room}/>
         </Switch>
         </Router>
         </CssBaseline>
